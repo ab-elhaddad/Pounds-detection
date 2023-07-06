@@ -9,7 +9,7 @@ const endpoint = async (req, res) => {
             encoding: "base64"
         });
 
-        axios({
+        await axios({
             method: "POST",
             url: "https://detect.roboflow.com/pounds-detection/6",
             params: {
@@ -22,7 +22,8 @@ const endpoint = async (req, res) => {
         })
             .then(function (response) {
                 console.log(response.data);
-                fs.rm(imagePath, () => { });
+                //fs.rm(imagePath, () => { });
+                fs.rmSync(imagePath);
                 res.json({ Data: response.data, Flag: true });
             })
             .catch(function (error) {
