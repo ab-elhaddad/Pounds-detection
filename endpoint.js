@@ -23,7 +23,7 @@ const endpoint = async (req, res) => {
             .then(function (response) {
                 console.log(response.data);
                 fs.rm(imagePath, () => { });
-                res.json({ Data: response.data, Flag: true });
+                res.json({ Flag: true, Data: response.data });
             })
             .catch(function (error) {
                 console.log(error.message);
