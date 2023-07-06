@@ -22,13 +22,12 @@ const endpoint = async (req, res) => {
         })
             .then(function (response) {
                 console.log(response.data);
-                //fs.rm(imagePath, () => { });
-                //fs.rmSync(imagePath);
+                fs.rm(imagePath, () => { });
                 res.json({ Data: response.data, Flag: true });
             })
             .catch(function (error) {
                 console.log(error.message);
-                //fs.rm(imagePath, () => { });
+                fs.rm(imagePath, () => { });
                 res.json({ Flag: false });
             });
     }
